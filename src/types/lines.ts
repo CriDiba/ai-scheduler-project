@@ -17,5 +17,3 @@ export type LineSetupCost = {
   couvette: (prev: Couvette, curr: Couvette) => number
   remeltingMachine: (prev: boolean, curr: boolean) => number
 }
-
-export type Schedule = Array<Array<number>>
