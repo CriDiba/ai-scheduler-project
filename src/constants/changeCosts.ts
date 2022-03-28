@@ -1,0 +1,5 @@
+export const HEIGHT_CHANGE_COST = 10
+export const SHAPE_CHANGE_COST = 50
+export const CAGE_CHANGE_COST = 65
+export const COUVETTE_CHANGE_COST = 30
+export const REMELTING_MACHINE_CHANGE_COST = 1000
