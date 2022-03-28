@@ -10,10 +10,4 @@ export type LineSetup = {
   remeltingMachine: boolean
 }
 
-export type LineSetupCost = {
-  height: (prev: Height, curr: Height) => number
-  shape: (prev: Shape, curr: Shape) => number
-  cage: (prev: Cage, curr: Cage) => number
-  couvette: (prev: Couvette, curr: Couvette) => number
-  remeltingMachine: (prev: boolean, curr: boolean) => number
-}
+export type LineSetupDistance = (prev: LineSetup, curr: LineSetup) => number

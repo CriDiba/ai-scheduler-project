@@ -1,4 +1,4 @@
-import { LineSetup, LineSetupCost } from '../types/lines'
+import { LineSetup, LineSetupDistance } from '../types/lines'
 import { Schedule } from '../types/schedule'
 
 export function tardiness(schedule: Schedule, durations: number[], deadlines: number[]) {
@@ -13,9 +13,8 @@ export function tardiness(schedule: Schedule, durations: number[], deadlines: nu
   return sum
 }
 
-export function setupChangeCost(schedule: Schedule, machineSetup: LineSetup[], costFunctions: LineSetupCost) {
+export function setupChangeCost(schedule: Schedule, machineSetup: LineSetup[], distance: LineSetupDistance) {
   let sum = 0
-  const { height, shape, cage, couvette, remeltingMachine } = costFunctions
 
   for (const line of schedule) {
     let previousSetup = null
@@ -27,12 +26,7 @@ export function setupChangeCost(schedule: Schedule, machineSetup: LineSetup[], c
 
       const currentSetup = machineSetup[job]
 
-      sum +=
-        height(previousSetup.height, currentSetup.height) +
-        shape(previousSetup.shape, currentSetup.shape) +
-        cage(previousSetup.cage, currentSetup.cage) +
-        couvette(previousSetup.couvette, currentSetup.couvette) +
-        remeltingMachine(previousSetup.remeltingMachine, currentSetup.remeltingMachine)
+      sum += distance(previousSetup, currentSetup)
     }
   }
   return sum
