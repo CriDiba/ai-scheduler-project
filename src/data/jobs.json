@@ -1,0 +1,808 @@
+[
+  {
+    "id": 0,
+    "duration": 1,
+    "deadline": 346,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 1,
+    "duration": 2,
+    "deadline": 462,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 2,
+    "duration": 4,
+    "deadline": 456,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 3,
+    "duration": 39,
+    "deadline": 448,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 4,
+    "duration": 1,
+    "deadline": 518,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 0,
+      "couvette": 0,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 5,
+    "duration": 1,
+    "deadline": 469,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 6,
+    "duration": 1,
+    "deadline": 79,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 7,
+    "duration": 4,
+    "deadline": 442,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 8,
+    "duration": 4,
+    "deadline": 513,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 9,
+    "duration": 1,
+    "deadline": 359,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 10,
+    "duration": 3,
+    "deadline": 484,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 1,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 11,
+    "duration": 2,
+    "deadline": 497,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 12,
+    "duration": 3,
+    "deadline": 487,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 13,
+    "duration": 10,
+    "deadline": 413,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 14,
+    "duration": 3,
+    "deadline": 462,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 15,
+    "duration": 17,
+    "deadline": 525,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 16,
+    "duration": 67,
+    "deadline": 408,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 17,
+    "duration": 2,
+    "deadline": 439,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 1,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 18,
+    "duration": 52,
+    "deadline": 456,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 19,
+    "duration": 1,
+    "deadline": 559,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 1,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 20,
+    "duration": 6,
+    "deadline": 497,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 21,
+    "duration": 17,
+    "deadline": 439,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 22,
+    "duration": 1,
+    "deadline": 385,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 23,
+    "duration": 1,
+    "deadline": 511,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 24,
+    "duration": 23,
+    "deadline": 499,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 25,
+    "duration": 19,
+    "deadline": 466,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 26,
+    "duration": 10,
+    "deadline": 270,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 27,
+    "duration": 1,
+    "deadline": 476,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 0,
+      "couvette": 0,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 28,
+    "duration": 1,
+    "deadline": 479,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 29,
+    "duration": 41,
+    "deadline": 462,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 30,
+    "duration": 1,
+    "deadline": 543,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 31,
+    "duration": 1,
+    "deadline": 0,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 32,
+    "duration": 1,
+    "deadline": 502,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 0,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 33,
+    "duration": 1,
+    "deadline": 532,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 0,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 34,
+    "duration": 19,
+    "deadline": 443,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 35,
+    "duration": 25,
+    "deadline": 479,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 36,
+    "duration": 5,
+    "deadline": 533,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 37,
+    "duration": 17,
+    "deadline": 490,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 38,
+    "duration": 6,
+    "deadline": 511,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 39,
+    "duration": 34,
+    "deadline": 448,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 40,
+    "duration": 2,
+    "deadline": 465,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 41,
+    "duration": 1,
+    "deadline": 546,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 42,
+    "duration": 10,
+    "deadline": 408,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 43,
+    "duration": 41,
+    "deadline": 471,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 44,
+    "duration": 3,
+    "deadline": 502,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 45,
+    "duration": 1,
+    "deadline": 483,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 46,
+    "duration": 1,
+    "deadline": 472,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 47,
+    "duration": 9,
+    "deadline": 462,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 48,
+    "duration": 16,
+    "deadline": 452,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 49,
+    "duration": 6,
+    "deadline": 490,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 50,
+    "duration": 1,
+    "deadline": 385,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 51,
+    "duration": 8,
+    "deadline": 512,
+    "compatibleMachines": ["3", "5", "6", "12"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 1,
+      "cage": 0,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 52,
+    "duration": 1,
+    "deadline": 385,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 53,
+    "duration": 5,
+    "deadline": 462,
+    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 54,
+    "duration": 21,
+    "deadline": 470,
+    "compatibleMachines": ["4", "11"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 5,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 55,
+    "duration": 1,
+    "deadline": 385,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 2,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 56,
+    "duration": 7,
+    "deadline": 443,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 57,
+    "duration": 1,
+    "deadline": 538,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 58,
+    "duration": 1,
+    "deadline": 518,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 59,
+    "duration": 1,
+    "deadline": 533,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 60,
+    "duration": 1,
+    "deadline": 291,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 1,
+      "shape": 0,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  },
+  {
+    "id": 61,
+    "duration": 1,
+    "deadline": 359,
+    "compatibleMachines": ["3", "5", "6", "10", "13"],
+    "machineSetup": {
+      "height": 0,
+      "shape": 1,
+      "cage": 1,
+      "couvette": 3,
+      "remeltingMachine": false
+    }
+  }
+]
