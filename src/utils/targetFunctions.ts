@@ -1,3 +1,4 @@
+import { MAX_CHANGES_VIOLATION_COST } from '../constants/changeCosts'
 import { LineSetup, LineSetupDistance } from '../types/lines'
 import { Schedule } from '../types/schedule'
 
@@ -30,4 +31,25 @@ export function setupChangeCost(schedule: Schedule, machineSetup: LineSetup[], d
     }
   }
   return sum
+}
+
+export function dailyChangeCost(schedule: Schedule, durations: number[]) {
+  const dailyChanges = Array(1000).fill(0)
+
+  for (const line of schedule) {
+    let date = 0
+    for (const job of line) {
+      dailyChanges[date]++
+      date += durations[job]
+    }
+  }
+
+  const violations = dailyChanges.reduce((totalViolations, currentChanges, index) => {
+    if (index !== 0) {
+      return currentChanges > 2 ? totalViolations + 1 : totalViolations
+    }
+    return totalViolations
+  }, 0)
+
+  return MAX_CHANGES_VIOLATION_COST * violations
 }

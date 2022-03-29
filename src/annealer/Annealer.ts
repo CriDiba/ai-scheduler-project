@@ -39,7 +39,7 @@ export class Annealer<I, S, SC> {
       const transition = await this.transition(instance, solution, change)
       const exponent = -transition.delta / this.currentValue / (options.K * this.temperature)
       const merit = Math.pow(Math.E, exponent)
-      if (transition.delta < 0) {
+      if (transition.delta > 0) {
         this.currentValue = this.currentValue + transition.delta
       } else if (merit > flip) {
         this.currentValue = this.currentValue + transition.delta
