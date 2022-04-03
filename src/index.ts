@@ -1,4 +1,3 @@
-import assert from 'assert'
 import { AnnealingOptions } from './annealer'
 import { Annealer } from './annealer/Annealer'
 import inputJobs from './data/jobs.json'
@@ -95,7 +94,7 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
       }
     }
     case ScheduleChange.VERTICAL_ADJACENCY: {
-      for (;;) {
+      while (true) {
         const swapRow = Math.floor(Math.random() * solution.length)
         const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
         const nextRow = (swapRow + 1) % solution.length
@@ -127,7 +126,7 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
       }
     }
     case ScheduleChange.RANDOM: {
-      for (;;) {
+      while (true) {
         const swapRow = Math.floor(Math.random() * solution.length)
         const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
         const nextRow = Math.floor(Math.random() * solution.length)
@@ -172,7 +171,7 @@ const options: AnnealingOptions = {
   coolingFraction: 0.9997,
 }
 
-const f = async () => {
+const _f = async () => {
   const firstSolution = await initialize(instance)
   console.log(firstSolution)
   console.log('SOLUTION VALUE: ', await solutionValue(instance, firstSolution))
