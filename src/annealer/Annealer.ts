@@ -3,6 +3,9 @@ import { AnnealingOptions } from '.'
 export class Annealer<I, S, SC> {
   private temperature: number
   private currentValue: number
+  private _worstSolutionValue: number
+  private _printProgress: boolean
+  private _printSteps: number
 
   constructor(
     private initialize: (instance: I) => Promise<S>,
@@ -12,25 +15,40 @@ export class Annealer<I, S, SC> {
   ) {
     this.temperature = 0.0
     this.currentValue = 0.0
+    this._worstSolutionValue = Number.POSITIVE_INFINITY
+    this._printProgress = false
+    this._printSteps = 1
+  }
+
+  public get worstSolutionValue(): number {
+    return this._worstSolutionValue
   }
 
   public get lastSolutionValue(): number {
     return this.currentValue
   }
 
+  public printProgress(value: boolean, steps = 1) {
+    this._printProgress = value
+    this._printSteps = steps
+  }
+
   async anneal(instance: I, options: AnnealingOptions): Promise<S> {
     this.temperature = options.initialTemp
     const solution = await this.initialize(instance)
     this.currentValue = await this.solutionValue(instance, solution)
+    this._worstSolutionValue = this.currentValue
     for (let i = 1; i < options.coolingSteps; i++) {
       await this.cooldown(instance, solution, options)
+      if (this._printProgress && i % this._printSteps === 0) {
+        console.log('temperature:', this.temperature, 'currentValue:', this.currentValue)
+      }
     }
 
     return solution
   }
 
   private async cooldown(instance: I, solution: S, options: AnnealingOptions) {
-    console.log('cooldown -- temperature:', this.temperature, 'currentValue:', this.currentValue)
     this.temperature = this.temperature * options.coolingFraction
     const startValue = this.currentValue
 
@@ -53,5 +71,7 @@ export class Annealer<I, S, SC> {
     if (this.currentValue - startValue < 0.0) {
       this.temperature = this.temperature / options.coolingFraction
     }
+
+    this._worstSolutionValue = Math.max(this.currentValue, this._worstSolutionValue)
   }
 }

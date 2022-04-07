@@ -1,4 +1,5 @@
-import { LineSetup } from './lines'
+import { Cage } from './enumerations/LineElements'
+import { Couvette, LineSetup } from './lines'
 
 export interface IOptimizationProblem {
   machines: number[]
@@ -8,4 +9,8 @@ export interface IOptimizationProblem {
   availability: boolean[][]
   deadlines: number[]
   machineSetup: LineSetup[]
+  couvetteCompatibilities: Couvette[][]
+  cageCompatibilities: Cage[][]
+  matricesJobs: number[][]
+  cooldown: number
 }

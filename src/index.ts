@@ -1,11 +1,18 @@
 import { AnnealingOptions } from './annealer'
 import { Annealer } from './annealer/Annealer'
 import inputJobs from './data/jobs.json'
-import { LineSetup } from './types/lines'
+import { Cage } from './types/enumerations/LineElements'
+import { Couvette, LineSetup } from './types/lines'
 import { IOptimizationProblem } from './types/OptimizationProblem'
 import { Move, MOVES, Schedule, ScheduleChange } from './types/schedule'
 import { distance } from './utils/costFunctions'
-import { dailyChangeCost, setupChangeCost, tardiness } from './utils/targetFunctions'
+import {
+  cooldownHardLimit,
+  dailyChangeCost,
+  setupChangeCost,
+  tardiness,
+  weeklyChangeCost,
+} from './utils/targetFunctions'
 
 const jobs: number[] = []
 const durations: number[] = []
@@ -14,6 +21,9 @@ const machineSetup: LineSetup[] = []
 const compatibility: boolean[][] = []
 const lines = ['3', '4', '5', '6', '10', '11', '12', '13']
 const machines = [0, 1, 2, 3, 4, 5, 6, 7]
+const couvetteCompatibilities: Couvette[][] = []
+const cageCompatibilities: Cage[][] = []
+const matricesJobs: number[][] = []
 
 lines.forEach(() => {
   compatibility.push([])
@@ -31,6 +41,9 @@ inputJobs.forEach((job) => {
     compatibility[index].push(job.compatibleMachines.includes(line))
   })
   compatibility.push(compatible)
+  couvetteCompatibilities.push(job.compatibleCouvettes as Couvette[])
+  cageCompatibilities.push(job.compatibleCages as Cage[])
+  matricesJobs.push(inputJobs.filter((j) => j.originalId === job.originalId).map((j) => j.id))
 })
 
 const instance: IOptimizationProblem = {
@@ -41,6 +54,10 @@ const instance: IOptimizationProblem = {
   availability: [],
   deadlines,
   machineSetup,
+  couvetteCompatibilities,
+  cageCompatibilities,
+  matricesJobs,
+  cooldown: 10,
 }
 
 async function initialize(instance: IOptimizationProblem): Promise<Schedule> {
@@ -69,11 +86,15 @@ async function solutionValue(instance: IOptimizationProblem, solution: Schedule)
   const w1 = 0.5
   const w2 = 0.2
   const w3 = 0.7
+  const w4 = 0.7
+  const w5 = 1.0
 
   return (
     w1 * tardiness(solution, instance.durations, instance.deadlines) +
     w2 * setupChangeCost(solution, instance.machineSetup, distance) +
-    w3 * dailyChangeCost(solution, instance.durations)
+    w3 * dailyChangeCost(solution, instance.durations) +
+    w4 * weeklyChangeCost(solution, instance.durations) +
+    w5 * cooldownHardLimit(solution, instance.durations, instance.matricesJobs, instance.cooldown)
   )
 }
 
@@ -166,7 +187,7 @@ async function transition(instance: IOptimizationProblem, prevSolution: Schedule
 const options: AnnealingOptions = {
   K: 1,
   initialTemp: 1000,
-  stepsPerTemp: 2,
+  stepsPerTemp: 3,
   coolingSteps: 100000,
   coolingFraction: 0.9997,
 }
@@ -181,8 +202,6 @@ const _f = async () => {
   console.log('NEXT SOLUTION', firstSolution)
 }
 
-//f()
-
 const annealer = new Annealer<IOptimizationProblem, Schedule, Move>(
   initialize,
   solutionValue,
@@ -191,8 +210,11 @@ const annealer = new Annealer<IOptimizationProblem, Schedule, Move>(
 )
 
 const main = async () => {
+  annealer.printProgress(true, 1000)
   const schedule = await annealer.anneal(instance, options)
-  console.log(schedule, '\n', annealer.lastSolutionValue, solutionValue(instance, schedule))
+  console.log(schedule)
+  console.log('Worst:', annealer.worstSolutionValue)
+  console.log('Last:', annealer.lastSolutionValue)
 }
 
 main()

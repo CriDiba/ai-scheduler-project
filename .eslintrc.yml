@@ -19,3 +19,4 @@ rules:
   '@typescript-eslint/explicit-module-boundary-types': 'off'
   '@typescript-eslint/no-unused-vars': [warn, { 'varsIgnorePattern': '^_' }]
   'no-constant-condition': 'off'
+  'no-prototype-builtins': 'off'

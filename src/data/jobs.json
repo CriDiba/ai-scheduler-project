@@ -1,808 +1,432 @@
 [
   {
     "id": 0,
-    "duration": 1,
-    "deadline": 346,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "049589ef-4134-49b0-b437-853f6c81f6b5",
+    "duration": 2,
+    "deadline": 4,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [5],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 1,
-    "duration": 2,
-    "deadline": 462,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "05db9601-36f9-48db-9890-d100a8ae8056",
+    "duration": 7,
+    "deadline": 47,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 2,
+    "originalId": "08de391e-e924-4e46-8bdb-5fb2c0121a83",
     "duration": 4,
-    "deadline": 456,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "deadline": 34,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [5],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 3,
-    "duration": 39,
-    "deadline": 448,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "16e1c444-90eb-4e9a-987f-9516c5d0763f",
+    "duration": 6,
+    "deadline": 57,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 4,
-    "duration": 1,
-    "deadline": 518,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 0,
-      "couvette": 0,
-      "remeltingMachine": false
-    }
+    "originalId": "1ef45617-346e-47e0-8fd8-8a867a0c9fd1",
+    "duration": 18,
+    "deadline": 12,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 5,
-    "duration": 1,
-    "deadline": 469,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "1ef45617-346e-47e0-8fd8-8a867a0c9fd1",
+    "duration": 4,
+    "deadline": 12,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 6,
-    "duration": 1,
-    "deadline": 79,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "21eb7970-d1d5-4fb4-b4d7-af1b4a498645",
+    "duration": 4,
+    "deadline": 26,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 7,
-    "duration": 4,
-    "deadline": 442,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "2542e1fb-072f-4595-b752-9c23350831c7",
+    "duration": 2,
+    "deadline": 56,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 8,
-    "duration": 4,
-    "deadline": 513,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "27d17047-110e-4237-aa7b-51400716a4c2",
+    "duration": 8,
+    "deadline": 26,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [5],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 9,
-    "duration": 1,
-    "deadline": 359,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "2ae06225-0dee-4261-9d9f-1561132afa74",
+    "duration": 2,
+    "deadline": -34,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 10,
-    "duration": 3,
-    "deadline": 484,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 1,
-      "remeltingMachine": false
-    }
+    "originalId": "2c085bb2-d41d-465a-bff6-73285c4905cd",
+    "duration": 2,
+    "deadline": -30,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 11,
+    "originalId": "3224d31e-177c-49b1-b7c8-d690fe0fe532",
     "duration": 2,
-    "deadline": 497,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "deadline": -534,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [1, 2],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 2, "remeltingMachine": false }
   },
   {
     "id": 12,
-    "duration": 3,
-    "deadline": 487,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "3effd761-eac5-4828-92e2-a27632b5381d",
+    "duration": 11,
+    "deadline": -3,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 13,
-    "duration": 10,
-    "deadline": 413,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "43f015a5-00ee-4682-8241-0003c1d26db5",
+    "duration": 4,
+    "deadline": 12,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [4, 5],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 14,
-    "duration": 3,
-    "deadline": 462,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "5422cbdd-4702-424e-8919-2ccbca7c39e1",
+    "duration": 2,
+    "deadline": -264,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [5],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 15,
-    "duration": 17,
-    "deadline": 525,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "5f1a1b25-75bb-4af1-8a44-adb6b9f19919",
+    "duration": 18,
+    "deadline": -1,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 16,
-    "duration": 67,
-    "deadline": 408,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "5f1a1b25-75bb-4af1-8a44-adb6b9f19919",
+    "duration": 6,
+    "deadline": -1,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 17,
+    "originalId": "6046d8b5-34e9-4444-84d8-f884e9da63e4",
     "duration": 2,
-    "deadline": 439,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 1,
-      "remeltingMachine": false
-    }
+    "deadline": -126,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [5],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 18,
-    "duration": 52,
-    "deadline": 456,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "604bab91-e8b7-4fa7-9282-8e958ae5e055",
+    "duration": 2,
+    "deadline": 36,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "12", "13"],
+    "compatibleCages": [0],
+    "compatibleCouvettes": [0, 1],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 0, "couvette": 1, "remeltingMachine": false }
   },
   {
     "id": 19,
-    "duration": 1,
-    "deadline": 559,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 1,
-      "remeltingMachine": false
-    }
+    "originalId": "63261bd2-c67a-4291-94af-3e42dd8bc73a",
+    "duration": 4,
+    "deadline": 4,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 20,
-    "duration": 6,
-    "deadline": 497,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "6d8ff310-8a44-4ec3-bdf4-0f0cd541cefe",
+    "duration": 4,
+    "deadline": 39,
+    "compatibleMachines": ["3", "6", "12"],
+    "compatibleCages": [0],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 0, "couvette": 3, "remeltingMachine": true }
   },
   {
     "id": 21,
-    "duration": 17,
-    "deadline": 439,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "893383f2-7ef8-40c9-83f6-1d20d50f2cdb",
+    "duration": 3,
+    "deadline": 34,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [1, 2],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 2, "remeltingMachine": false }
   },
   {
     "id": 22,
-    "duration": 1,
-    "deadline": 385,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "9334a8f7-5853-402d-9e3d-72e5a9e9f0ae",
+    "duration": 5,
+    "deadline": 39,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "12", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 23,
-    "duration": 1,
-    "deadline": 511,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "9789001b-e4a3-463b-8df6-c6c045081766",
+    "duration": 2,
+    "deadline": 25,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [1],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 1, "remeltingMachine": false }
   },
   {
     "id": 24,
-    "duration": 23,
-    "deadline": 499,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "b360bf59-a367-4ddc-beb2-ee10b221be3f",
+    "duration": 2,
+    "deadline": -6,
+    "compatibleMachines": ["3", "6"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [0],
+    "machineSetup": { "height": 0, "shape": 0, "cage": 1, "couvette": 0, "remeltingMachine": false }
   },
   {
     "id": 25,
-    "duration": 19,
-    "deadline": 466,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "b788d8c7-9c83-4d1d-bfec-33849a0e5413",
+    "duration": 2,
+    "deadline": 40,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 26,
-    "duration": 10,
-    "deadline": 270,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "b8e114f6-6619-45f2-b7f5-f22c2923e384",
+    "duration": 2,
+    "deadline": 9,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 27,
-    "duration": 1,
-    "deadline": 476,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 0,
-      "couvette": 0,
-      "remeltingMachine": false
-    }
+    "originalId": "bb42d632-ad67-4908-85b2-1a9bb848df59",
+    "duration": 2,
+    "deadline": 54,
+    "compatibleMachines": ["4", "11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 28,
-    "duration": 1,
-    "deadline": 479,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
+    "originalId": "bcda0b20-afe7-404e-98e7-441db809c90c",
+    "duration": 4,
+    "deadline": 34,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 29,
-    "duration": 41,
-    "deadline": 462,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "c1bc74fe-4868-4f44-8bcf-c9718b3a8ef8",
+    "duration": 3,
+    "deadline": 16,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 30,
-    "duration": 1,
-    "deadline": 543,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "c6504189-84c6-4c70-85f2-93fbdc4d6070",
+    "duration": 4,
+    "deadline": 47,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 31,
-    "duration": 1,
-    "deadline": 0,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "c6db3c0e-0af3-429c-a03a-58083db8ff08",
+    "duration": 2,
+    "deadline": 43,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [3, 4],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 4, "remeltingMachine": false }
   },
   {
     "id": 32,
-    "duration": 1,
-    "deadline": 502,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 0,
-      "remeltingMachine": false
-    }
+    "originalId": "cdfac0b0-0f05-4d6a-9656-352c4583e6fb",
+    "duration": 11,
+    "deadline": -1,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [1, 2],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 2, "remeltingMachine": false }
   },
   {
     "id": 33,
-    "duration": 1,
-    "deadline": 532,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 0,
-      "remeltingMachine": false
-    }
+    "originalId": "dbfe63e0-d546-4d2e-ab53-b5f04a141ff7",
+    "duration": 2,
+    "deadline": -32,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [0],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 0, "remeltingMachine": false }
   },
   {
     "id": 34,
-    "duration": 19,
-    "deadline": 443,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "de53b348-f619-45cd-97e6-e3ebae5e28bf",
+    "duration": 16,
+    "deadline": 6,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 35,
-    "duration": 25,
-    "deadline": 479,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "e7530296-45ba-4f07-a255-b51d9274d167",
+    "duration": 2,
+    "deadline": -2,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [0],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 0, "remeltingMachine": false }
   },
   {
     "id": 36,
-    "duration": 5,
-    "deadline": 533,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "ef62435f-12df-463e-af7b-5c796ffde422",
+    "duration": 2,
+    "deadline": -149,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "12", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 37,
-    "duration": 17,
-    "deadline": 490,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "ef99ece0-5281-42b9-b065-9ed2c8e065ab",
+    "duration": 18,
+    "deadline": -5,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 38,
-    "duration": 6,
-    "deadline": 511,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "ef99ece0-5281-42b9-b065-9ed2c8e065ab",
+    "duration": 2,
+    "deadline": -5,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 39,
-    "duration": 34,
-    "deadline": 448,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "f12a6a21-abc0-4888-8836-9d2c4b0b6ccb",
+    "duration": 2,
+    "deadline": 60,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 40,
-    "duration": 2,
-    "deadline": 465,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
+    "originalId": "f1af6473-4ff5-4dde-a0ca-3498f5ac5e7c",
+    "duration": 3,
+    "deadline": 27,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1, 0],
+    "compatibleCouvettes": [2, 3],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
   },
   {
     "id": 41,
-    "duration": 1,
-    "deadline": 546,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "f202712a-e99b-423c-9795-554361b51831",
+    "duration": 5,
+    "deadline": 60,
+    "compatibleMachines": ["3", "4", "5", "6", "10", "11", "13"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [4, 5],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 5, "remeltingMachine": false }
   },
   {
     "id": 42,
-    "duration": 10,
-    "deadline": 408,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 43,
-    "duration": 41,
-    "deadline": 471,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 44,
-    "duration": 3,
-    "deadline": 502,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 45,
-    "duration": 1,
-    "deadline": 483,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 46,
-    "duration": 1,
-    "deadline": 472,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 47,
-    "duration": 9,
-    "deadline": 462,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 48,
-    "duration": 16,
-    "deadline": 452,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 49,
-    "duration": 6,
-    "deadline": 490,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 50,
-    "duration": 1,
-    "deadline": 385,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 51,
-    "duration": 8,
-    "deadline": 512,
-    "compatibleMachines": ["3", "5", "6", "12"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 1,
-      "cage": 0,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 52,
-    "duration": 1,
-    "deadline": 385,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 53,
-    "duration": 5,
-    "deadline": 462,
-    "compatibleMachines": ["3", "5", "6", "10", "12", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 54,
-    "duration": 21,
-    "deadline": 470,
-    "compatibleMachines": ["4", "11"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 5,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 55,
-    "duration": 1,
-    "deadline": 385,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 2,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 56,
-    "duration": 7,
-    "deadline": 443,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 57,
-    "duration": 1,
-    "deadline": 538,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 58,
-    "duration": 1,
-    "deadline": 518,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 59,
-    "duration": 1,
-    "deadline": 533,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 60,
-    "duration": 1,
-    "deadline": 291,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 1,
-      "shape": 0,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
-  },
-  {
-    "id": 61,
-    "duration": 1,
-    "deadline": 359,
-    "compatibleMachines": ["3", "5", "6", "10", "13"],
-    "machineSetup": {
-      "height": 0,
-      "shape": 1,
-      "cage": 1,
-      "couvette": 3,
-      "remeltingMachine": false
-    }
+    "originalId": "f839444a-7d25-4d57-8410-b4ef962899e0",
+    "duration": 4,
+    "deadline": 34,
+    "compatibleMachines": ["11"],
+    "compatibleCages": [1],
+    "compatibleCouvettes": [4, 5],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 5, "remeltingMachine": false }
   }
 ]
