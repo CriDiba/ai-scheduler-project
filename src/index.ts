@@ -1,5 +1,6 @@
 import { AnnealingOptions } from './annealer'
 import { Annealer } from './annealer/Annealer'
+import { COOLDOWN_NOT_RESPECTED_COST } from './constants/changeCosts'
 import inputJobs from './data/jobs.json'
 import { Cage } from './types/enumerations/LineElements'
 import { Couvette, LineSetup } from './types/lines'
@@ -209,7 +210,7 @@ function errorThrower(solution: Schedule) {
 const options: AnnealingOptions = {
   K: 1,
   initialTemp: 1000,
-  stepsPerTemp: 5,
+  stepsPerTemp: 1,
   coolingSteps: 100000,
   coolingFraction: 0.9997,
 }
@@ -235,6 +236,11 @@ const _f = async () => {
   console.log('CHOSE RANDOM CHANGE: ', changes)
   console.log('TRANSITION', await transition(instance, firstSolution, changes))
   console.log('NEXT SOLUTION', firstSolution)
+  console.log(
+    'Conflicts generated:',
+    cooldownHardLimit(firstSolution, instance.durations, instance.matricesJobs, instance.cooldown) /
+      COOLDOWN_NOT_RESPECTED_COST
+  )
 }
 
 const annealer = new Annealer<IOptimizationProblem, Schedule, Move>(
@@ -251,6 +257,11 @@ const main = async () => {
   console.log(schedule)
   console.log('Worst:', annealer.worstSolutionValue)
   console.log('Last:', annealer.lastSolutionValue)
+  console.log(
+    'Conflicts generated:',
+    cooldownHardLimit(schedule, instance.durations, instance.matricesJobs, instance.cooldown) /
+      COOLDOWN_NOT_RESPECTED_COST
+  )
   printTimeUsage(schedule, instance.durations)
 }
 

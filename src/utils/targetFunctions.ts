@@ -106,9 +106,8 @@ export function cooldownHardLimit(schedule: Schedule, durations: number[], matri
     seenJobs.add(i)
 
     const dates: { start: number; end: number }[] = []
-    const jobs = [i, ...matricesJobs[i]]
     for (let i = 0; i < schedule.length; i++) {
-      for (const job of jobs) {
+      for (const job of matricesJobs[i]) {
         const indexOfJob = schedule[i].indexOf(job)
         if (indexOfJob !== -1) {
           const startDate = indexOfJob === 0 ? 0 : durationSchedule[i][indexOfJob - 1]
@@ -121,9 +120,7 @@ export function cooldownHardLimit(schedule: Schedule, durations: number[], matri
       for (let j = i + 1; j < dates.length; j++) {
         const firstJob = dates[i]
         const secondJob = dates[j]
-        if (firstJob.start <= secondJob.start && firstJob.end >= secondJob.start) {
-          conflicts++
-        } else if (firstJob.start >= secondJob.start && firstJob.start <= secondJob.end) {
+        if (firstJob.start <= secondJob.end && secondJob.start <= firstJob.end) {
           conflicts++
         } else {
           if (firstJob.end <= secondJob.start && secondJob.start - firstJob.end < cooldown) {
