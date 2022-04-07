@@ -104,7 +104,11 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
 
   switch (move) {
     case ScheduleChange.HORIZONTAL_ADJACENCY: {
-      const swapRow = Math.floor(Math.random() * solution.length)
+      let swapRow = Math.floor(Math.random() * solution.length)
+      while (solution[swapRow].length === 0) {
+        swapRow = Math.floor(Math.random() * solution.length)
+      }
+
       const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
       const nextColumn = swapColumn === solution[swapRow].length ? swapColumn - 1 : swapColumn + 1
       return {
@@ -136,7 +140,10 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
       }
     }
     case ScheduleChange.SAME_LINE: {
-      const swapRow = Math.floor(Math.random() * solution.length)
+      let swapRow = Math.floor(Math.random() * solution.length)
+      while (solution[swapRow].length === 0) {
+        swapRow = Math.floor(Math.random() * solution.length)
+      }
       const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
       const nextColumn = Math.floor(Math.random() * solution[swapRow].length)
       return {
@@ -148,14 +155,19 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
     }
     case ScheduleChange.RANDOM: {
       while (true) {
-        const swapRow = Math.floor(Math.random() * solution.length)
+        let swapRow = Math.floor(Math.random() * solution.length)
+        while (solution[swapRow].length === 0) {
+          swapRow = Math.floor(Math.random() * solution.length)
+        }
         const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
         const nextRow = Math.floor(Math.random() * solution.length)
         const nextColumn = Math.floor(Math.random() * solution[nextRow].length)
 
         const swapJob1 = solution[swapRow][swapColumn]
         const swapJob2 = solution[nextRow][nextColumn]
-        const compatible = instance.compatibility[nextRow][swapJob1] && instance.compatibility[swapRow][swapJob2]
+        const compatible =
+          instance.compatibility[nextRow][swapJob1] &&
+          (swapJob2 === undefined || instance.compatibility[swapRow][swapJob2])
 
         if (compatible) {
           return {
@@ -184,12 +196,35 @@ async function transition(instance: IOptimizationProblem, prevSolution: Schedule
   return changes
 }
 
+function errorThrower(solution: Schedule) {
+  for (let i = 0; i < solution.length; i++) {
+    for (let j = 0; j < solution[i].length; j++) {
+      if (solution[i][j] === undefined || solution[i][j] < 0) {
+        throw Error
+      }
+    }
+  }
+}
+
 const options: AnnealingOptions = {
   K: 1,
   initialTemp: 1000,
-  stepsPerTemp: 3,
+  stepsPerTemp: 5,
   coolingSteps: 100000,
   coolingFraction: 0.9997,
+}
+
+function printTimeUsage(schedule: Schedule, durations: number[]) {
+  for (let i = 0; i < schedule.length; i++) {
+    let scheduleLineString = ''
+    for (let j = 0; j < schedule[i].length; j++) {
+      const job = schedule[i][j]
+      for (let j = 0; j < durations[job]; j++) {
+        scheduleLineString += '#'
+      }
+    }
+    console.log(scheduleLineString)
+  }
 }
 
 const _f = async () => {
@@ -211,10 +246,12 @@ const annealer = new Annealer<IOptimizationProblem, Schedule, Move>(
 
 const main = async () => {
   annealer.printProgress(true, 1000)
+  annealer.setErrorThrower(errorThrower)
   const schedule = await annealer.anneal(instance, options)
   console.log(schedule)
   console.log('Worst:', annealer.worstSolutionValue)
   console.log('Last:', annealer.lastSolutionValue)
+  printTimeUsage(schedule, instance.durations)
 }
 
 main()

@@ -6,6 +6,7 @@ export class Annealer<I, S, SC> {
   private _worstSolutionValue: number
   private _printProgress: boolean
   private _printSteps: number
+  private _errorThrower: ((solution: S) => void) | undefined = undefined
 
   constructor(
     private initialize: (instance: I) => Promise<S>,
@@ -33,6 +34,10 @@ export class Annealer<I, S, SC> {
     this._printSteps = steps
   }
 
+  public setErrorThrower(errorThrower?: (solution: S) => void) {
+    this._errorThrower = errorThrower
+  }
+
   async anneal(instance: I, options: AnnealingOptions): Promise<S> {
     this.temperature = options.initialTemp
     const solution = await this.initialize(instance)
@@ -42,6 +47,14 @@ export class Annealer<I, S, SC> {
       await this.cooldown(instance, solution, options)
       if (this._printProgress && i % this._printSteps === 0) {
         console.log('temperature:', this.temperature, 'currentValue:', this.currentValue)
+      }
+
+      try {
+        this._errorThrower?.(solution)
+      } catch (error) {
+        console.log('An error has occurred:', error)
+        console.log('Stopping annealer at iteration:', i)
+        return solution
       }
     }
 
@@ -66,12 +79,12 @@ export class Annealer<I, S, SC> {
       } else {
         await this.transition(instance, solution, revertChange)
       }
+
+      this._worstSolutionValue = Math.max(this.currentValue, this._worstSolutionValue)
     }
 
     if (this.currentValue - startValue < 0.0) {
       this.temperature = this.temperature / options.coolingFraction
     }
-
-    this._worstSolutionValue = Math.max(this.currentValue, this._worstSolutionValue)
   }
 }
