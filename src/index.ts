@@ -208,11 +208,11 @@ function errorThrower(solution: Schedule) {
 }
 
 const options: AnnealingOptions = {
-  K: 1,
+  K: 1.3,
   initialTemp: 1000,
   stepsPerTemp: 1,
   coolingSteps: 100000,
-  coolingFraction: 0.9997,
+  coolingFraction: 0.997,
 }
 
 function printTimeUsage(schedule: Schedule, durations: number[]) {

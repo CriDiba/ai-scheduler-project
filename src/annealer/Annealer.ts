@@ -43,7 +43,7 @@ export class Annealer<I, S, SC> {
     const solution = await this.initialize(instance)
     this.currentValue = await this.solutionValue(instance, solution)
     this._worstSolutionValue = this.currentValue
-    for (let i = 1; i < options.coolingSteps; i++) {
+    for (let i = 0; i < options.coolingSteps; i++) {
       await this.cooldown(instance, solution, options)
       if (this._printProgress && i % this._printSteps === 0) {
         console.log('temperature:', this.temperature, 'currentValue:', this.currentValue)
