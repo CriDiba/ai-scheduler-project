@@ -84,10 +84,10 @@ async function initialize(instance: IOptimizationProblem): Promise<Schedule> {
 }
 
 async function solutionValue(instance: IOptimizationProblem, solution: Schedule): Promise<number> {
-  const w1 = 0.5
-  const w2 = 0.2
+  const w1 = 0.3
+  const w2 = 0.5
   const w3 = 0.7
-  const w4 = 0.7
+  const w4 = 0.6
   const w5 = 1.0
 
   return (
@@ -212,17 +212,14 @@ const options: AnnealingOptions = {
   initialTemp: 1000,
   stepsPerTemp: 1,
   coolingSteps: 100000,
-  coolingFraction: 0.997,
+  coolingFraction: 0.9897,
 }
 
 function printTimeUsage(schedule: Schedule, durations: number[]) {
-  for (let i = 0; i < schedule.length; i++) {
+  for (const line of schedule) {
     let scheduleLineString = ''
-    for (let j = 0; j < schedule[i].length; j++) {
-      const job = schedule[i][j]
-      for (let j = 0; j < durations[job]; j++) {
-        scheduleLineString += '#'
-      }
+    for (const job of line) {
+      scheduleLineString += '#'.repeat(durations[job])
     }
     console.log(scheduleLineString)
   }
