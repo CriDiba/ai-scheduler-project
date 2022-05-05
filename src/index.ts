@@ -2,6 +2,7 @@ import { AnnealingOptions } from './annealer'
 import { Annealer } from './annealer/Annealer'
 import { COOLDOWN_NOT_RESPECTED_COST } from './constants/changeCosts'
 import inputJobs from './data/jobs.json'
+import { informativeSchedule } from './postpro/Postprocessor'
 import { Cage } from './types/enumerations/LineElements'
 import { Couvette, LineSetup } from './types/lines'
 import { IOptimizationProblem } from './types/OptimizationProblem'
@@ -20,7 +21,7 @@ const durations: number[] = []
 const deadlines: number[] = []
 const machineSetup: LineSetup[] = []
 const compatibility: boolean[][] = []
-const lines = ['3', '4', '5', '6', '10', '11', '12', '13']
+export const lines = ['3', '4', '5', '6', '10', '11', '12', '13']
 const machines = [0, 1, 2, 3, 4, 5, 6, 7]
 const couvetteCompatibilities: Couvette[][] = []
 const cageCompatibilities: Cage[][] = []
@@ -212,7 +213,7 @@ const options: AnnealingOptions = {
   initialTemp: 1000,
   stepsPerTemp: 1,
   coolingSteps: 100000,
-  coolingFraction: 0.9897,
+  coolingFraction: 0.9997,
 }
 
 function printTimeUsage(schedule: Schedule, durations: number[]) {
@@ -260,6 +261,7 @@ const main = async () => {
       COOLDOWN_NOT_RESPECTED_COST
   )
   printTimeUsage(schedule, instance.durations)
+  informativeSchedule(schedule, instance, inputJobs)
 }
 
 main()

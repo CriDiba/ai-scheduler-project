@@ -1,11 +1,11 @@
 import fs from 'fs'
+import { couvettes } from '../constants'
 import { Cage, Height, Shape } from '../types/enumerations/LineElements'
 import { Job } from '../types/job'
 import { Couvette } from '../types/lines'
 import input from './input.json'
 
 const jobs: Job[] = []
-const couvettes = ['75', '81', '89', '93', '98', '108']
 
 const stream = fs.createWriteStream('./data/jobs.json')
 
