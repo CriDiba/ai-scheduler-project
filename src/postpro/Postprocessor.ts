@@ -5,8 +5,9 @@ import input from '../prepro/input.json'
 import { IOptimizationProblem } from '../types/OptimizationProblem'
 import { Schedule, ScheduleEntry } from '../types/schedule'
 import { readCage, readCouvette, readHeight, readShape } from '../utils/converters'
+import jobs from '../data/jobs.json'
 
-export const informativeSchedule = (schedule: Schedule, instance: IOptimizationProblem, jobs: any) => {
+export const informativeSchedule = (schedule: Schedule, instance: IOptimizationProblem) => {
   const scheduleEntries: ScheduleEntry[] = []
 
   for (let i = 0; i < schedule.length; i++) {

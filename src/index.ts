@@ -261,7 +261,7 @@ const main = async () => {
       COOLDOWN_NOT_RESPECTED_COST
   )
   printTimeUsage(schedule, instance.durations)
-  informativeSchedule(schedule, instance, inputJobs)
+  informativeSchedule(schedule, instance)
 }
 
 main()
