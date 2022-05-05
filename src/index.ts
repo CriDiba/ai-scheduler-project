@@ -1,5 +1,6 @@
 import { AnnealingOptions } from './annealer'
 import { Annealer } from './annealer/Annealer'
+import { lines } from './constants'
 import { COOLDOWN_NOT_RESPECTED_COST } from './constants/changeCosts'
 import inputJobs from './data/jobs.json'
 import { informativeSchedule } from './postpro/Postprocessor'
@@ -21,7 +22,6 @@ const durations: number[] = []
 const deadlines: number[] = []
 const machineSetup: LineSetup[] = []
 const compatibility: boolean[][] = []
-export const lines = ['3', '4', '5', '6', '10', '11', '12', '13']
 const machines = [0, 1, 2, 3, 4, 5, 6, 7]
 const couvetteCompatibilities: Couvette[][] = []
 const cageCompatibilities: Cage[][] = []
