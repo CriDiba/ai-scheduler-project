@@ -63,14 +63,13 @@ export class Annealer<I, S, SC> {
 
   private async cooldown(instance: I, solution: S, options: AnnealingOptions) {
     this.temperature = this.temperature * options.coolingFraction
-    const startValue = this.currentValue
 
     for (let j = 1; j <= options.stepsPerTemp; j++) {
       const change = await this.chooseRandomChange(instance, solution)
       const flip = Math.random()
       const revertChange = await this.transition(instance, solution, change)
       const delta = (await this.solutionValue(instance, solution)) - this.currentValue
-      const exponent = -delta / this.currentValue / (options.K * this.temperature)
+      const exponent = -delta / (options.K * this.temperature)
       const merit = Math.pow(Math.E, exponent)
       if (delta < 0) {
         this.currentValue = this.currentValue + delta
@@ -81,10 +80,6 @@ export class Annealer<I, S, SC> {
       }
 
       this._worstSolutionValue = Math.max(this.currentValue, this._worstSolutionValue)
-    }
-
-    if (this.currentValue - startValue < 0.0) {
-      this.temperature = this.temperature / options.coolingFraction
     }
   }
 }

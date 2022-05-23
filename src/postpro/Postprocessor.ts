@@ -45,16 +45,15 @@ export const informativeSchedule = (schedule: Schedule, instance: IOptimizationP
         endNoteDescription: '',
         feederStrokes: matrix.feederStrokes,
         feederStrokesBudget: matrix.feederStrokesBudget,
-        furnacePullout: matrix.weight * matrix.feederStrokes,
+        furnacePullout: matrix.height * matrix.feederStrokes,
         initialNoteCode: '',
         initialNoteDescription: '',
         metaData: '',
         note: '',
-        productCode: '',
+        productCode: matrix.products[0],
         productName: '',
         productionConfirmed: false,
         status: 'Scheduled',
-        weight: matrix.weight,
         type: 'Production',
       })
       startDate = endDate

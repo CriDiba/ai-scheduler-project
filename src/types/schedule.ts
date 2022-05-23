@@ -53,7 +53,7 @@ export type ScheduleEntry = {
   compatibleCouvettes: string[]
   productionConfirmed: boolean
   metaData: string
-  weight: number
+  weight?: number
   furnacePullout: number
   goodPiecesPerHour?: number
   goodPiecesPerHourBudget?: number
