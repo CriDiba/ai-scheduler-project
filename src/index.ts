@@ -105,14 +105,13 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
   const move = MOVES[index]
 
   switch (move) {
-    case ScheduleChange.HORIZONTAL_ADJACENCY: {
+    case ScheduleChange.SAME_LINE: {
       let swapRow = Math.floor(Math.random() * solution.length)
       while (solution[swapRow].length === 0) {
         swapRow = Math.floor(Math.random() * solution.length)
       }
-
       const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
-      const nextColumn = swapColumn === solution[swapRow].length ? swapColumn - 1 : swapColumn + 1
+      const nextColumn = Math.floor(Math.random() * solution[swapRow].length)
       return {
         i: swapRow,
         j: swapColumn,
@@ -120,11 +119,11 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
         q: nextColumn,
       }
     }
-    case ScheduleChange.VERTICAL_ADJACENCY: {
+    case ScheduleChange.SAME_COLUMN: {
       while (true) {
         const swapRow = Math.floor(Math.random() * solution.length)
         const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
-        const nextRow = (swapRow + 1) % solution.length
+        const nextRow = Math.floor(Math.random() * solution.length)
         const nextColumn = swapColumn < solution[nextRow].length ? swapColumn : solution[nextRow].length
 
         const swapJob1 = solution[swapRow][swapColumn]
@@ -139,20 +138,6 @@ async function chooseRandomChange(instance: IOptimizationProblem, solution: Sche
             q: nextColumn,
           }
         }
-      }
-    }
-    case ScheduleChange.SAME_LINE: {
-      let swapRow = Math.floor(Math.random() * solution.length)
-      while (solution[swapRow].length === 0) {
-        swapRow = Math.floor(Math.random() * solution.length)
-      }
-      const swapColumn = Math.floor(Math.random() * solution[swapRow].length)
-      const nextColumn = Math.floor(Math.random() * solution[swapRow].length)
-      return {
-        i: swapRow,
-        j: swapColumn,
-        p: swapRow,
-        q: nextColumn,
       }
     }
     case ScheduleChange.RANDOM: {

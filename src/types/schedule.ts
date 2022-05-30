@@ -8,18 +8,12 @@ export type Move = {
 }
 
 export enum ScheduleChange {
-  HORIZONTAL_ADJACENCY,
-  VERTICAL_ADJACENCY,
   SAME_LINE,
+  SAME_COLUMN,
   RANDOM,
 }
 
-export const MOVES = [
-  ScheduleChange.HORIZONTAL_ADJACENCY,
-  ScheduleChange.VERTICAL_ADJACENCY,
-  ScheduleChange.SAME_LINE,
-  ScheduleChange.RANDOM,
-]
+export const MOVES = [ScheduleChange.SAME_LINE, ScheduleChange.SAME_COLUMN, ScheduleChange.RANDOM]
 
 export type ScheduleEntry = {
   lineCode: string
