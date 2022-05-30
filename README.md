@@ -1,77 +1,81 @@
 # Intelligenza Artificiale - Progetto d'esame
 
-Studenti:
+Scopo del progetto è la realizzazione di un Master Production Scheduler (_MPS_), ossia un algoritmo per la pianficazione della produzione di un'azienda produttrice di oggetti in vetro.
 
-- Cristiano Di Bari - VR476576
-- Matteo Cavaliere - VR477235
+## Indice
 
-Anno Accademico: 2021/2022
+1. [Definizione del problema](#)
+   1. [Dati di input](#)
+   2. [Dati di output](#)
+   3. [Assunzioni](#)
+2. [Definizione dei vincoli](#)
+   1. [Vincoli Hard](#)
+   2. [Vincoli Soft](#)
+3. [Approccio risolutivo](#)
+4. [Conclusioni](#)
+5. [Autori](#)
 
-## Documento di specifica e analisi dei requisti
+## Definizione del problema
 
-### Definizione del problema
+Dato un insieme di prodotti, la cui richiesta non è coperta dalle scorte di magazzino, si vuole pianificarne la produzione.
+L'algoritmo deve quindi ordinare i prodotti sulle linee di produzione disponibili minimizzando il costo di cambio (configurazione della linea) tra una lavorazione e la successiva e minimizzando il ritardo tra la fine della produzione e la data di consegna di ciascun prodotto.
 
-Scopo del progetto è la realizzazione di un Master Production Scheduler (MPS), ossia un algoritmo per la pianficazione della produzione nel reparto forni di un'azienda produttrice di oggetti in vetro.
+Il problema in questione è un caso particolare del più famoso [Optimal Job Scheduling Problem](https://en.wikipedia.org/wiki/Optimal_job_scheduling), largamente trattato in letteratura.
+Nel problema dello scheduling ottimo sono dati un insieme di $n$ _jobs_ (o _tasks_) ed un inisieme di $m$ processori (o macchine). Ogni job ha associato un numero intero $\tau_i$ che rappresenta il tempo necessario alla sua esecuzione.
+L'output del problema è uno schedule $\sigma$, che consiste in un assegnamento dei job alle macchine tale da ottimizzare una qualche funzione obiettivo.
 
-Si vuole pianificare la produzione solo per i prodotti la cui richiesta, nei prossimi X giorni, non è coperta dalle scorte di magazzino. L'algoritmo deve quindi ordinare i prodotti sulle linee di produzione minimizzando il costo di cambio tra una lavorazione e la successiva.
+### Dati di input
 
-#### Dati di input
+- Un insieme di $n$ jobs: $J = \{j_{1}, ... , j_{n}\}$
 
-- `L` **Linee di produzione** sulle quali è possibile produrre gli articoli, ogni linea è caratterizzata da:
+- Un insieme di $q$ macchine: $M = \{m_{1}, ... , m_{q}\}$
+- Ogni job $j_i \in J$ ha una durata associata $\tau_i$, viene definito quindi l'insieme $\Tau = \{\tau_{1}, ... , \tau_{n}\}$ delle durate di ciascun job, esse rappresentano il tempo di produzione in giorni relativo a quel job.
+- Ogni job $j_i \in J$ ha una data di scadenza $d_i$ entro la quale è necessario produrlo, l'insieme $D = \{d_{1}, ... , d_{n}\}$ contiene le date di scadenza di ogni job.
+- Ogni job può essere prodotto solo su un sottoinsieme delle macchine disponibili, viene definita quindi una matrice di compatibilità $C$ di dimensioni $m \times n$, tale che $c_{ij} = 1$ se il job $j_j$ è compatibile con la macchina $m_i$, $c_{ij} = 0$ altrimenti.
+- Ogni job $j_i \in J$ necessita di una specifica configurazione della macchina per poter essere prodotto, in particolare si deve tener conto di:
+  - _altezza della macchina_: $height \in \{0,1\}$
+  - _forma della macchina_: $shape \in \{0,1\}$
+  - _gabbia_, tipo di supporto pressante della macchina: $cage \in \{0,1\}$
+  - _diametro couvette_, diametro del foro da cui esce il vetro: $couvette \in \{0,1,2,3,4,5\}$
+  - _ribruciatrice_, indica la presenza o meno di questo componente, essenziale per alcuni tipi di produzione: $remeltingMachine \in \{0,1\}$
+- L'insieme $S = \{s_{1}, ... , s_{n}\}$ associa ad ogni job la configurazione della macchina richiesta.
+- Alcuni job sono correlati, si definisce quindi una matrice $R$ di dimensione $n \times n$ tale che $r_{ij} = 1$ se il job $j_i$ ed il job $j_j$ sono correlati fra loro, $r_{ij} = 0$ altrimenti.
 
-  1.  _Forno_ a cui è associata la linea
-  2.  _Diametro couvette_: il diametro del foro da cui esce il vetro per essere stampato
-  3.  _Gabbia_: tipo di supporto pressante della macchina
-  4.  _Altezza_ della linea
-  5.  _Forma_
-  6.  _Ribruciatrice_: la presenza o meno di questo componente, essenziale per alcuni tipi di produzione
+### Dati di output
 
-- `M` **Matrici**: ogni matrice è formata da uno o più prodotti compatibili che andranno in disponibilità negativa nei prossimi `D` giorni:
+Lo schedule $\sigma$ è rappresentato da una sequenza di job che vengono assegnati ad ogni macchina. Per semplicità consideriamo uno schedule _left-justified_ in cui l'istante di inizio del primo job è il tempo 0 e tutti gli altri job sulla stessa macchina vengono eseguiti in successione).
+A partire da questa rappresentazione è possibile costruire uno schedule in modo univoco. Un esempio di tale schedule è mostrato nella tabella seguente.
 
-  1.  _Setup linea_: la configurazione della linea necessaria per produrre la matrice
-  2.  _Peso_:
-  3.  _Colpi feeder ideali_:
-  4.  _Ultimi colpi feeder usati_:
-  5.  _Numero pezzi_: stima dei pezzi prodotti con la matrice.
-  6.  _Linee compatibili_: lista delle linee su cui la matrice può essere prodotta.
-  7.  _Data rottura di stock_: data in cui la matrice andrà in disponibilità negativa.
-  8.  Giorni di produzione di una matrice: proporzione (colpi feeder/cf budget = pb ora/pb ora budget)
+| M     |         |         |         |
+| ----- | ------- | ------- | ------- |
+| $m_1$ | $j_{2}$ | $j_{7}$ | $j_{4}$ |
+| $m_2$ | $j_{1}$ | $j_{2}$ |
+| $m_3$ | $j_{3}$ | $j_{5}$ |
 
-- **Calendario fabbrica**, per ogni giorni:
+### Assunzioni
 
-  1.  _Numero di linee disponibili_: quante sono
-  2.  _Linee attivabili_ : quali sono
-  3.  Giorni in cui posso effettuare il cambio matrice (Dove sono): il sabato e la domenica
+Ogni job, per poter essere eseguito impiega un tempo $\tau_i$ uguale su ogni macchina.
 
-- **Calendario matrici**: per ogni giorno quali matrici sono disponibili
+**[Back to top](#table-of-contents)**
 
-- `t0`: tempo minimo per cui una matrice rimane in produzione
+## Definizione dei vincoli
 
-- `tm`: tempo massimo per cui una matrice rimane in produzione
+Si vuole produrre uno schedule $\sigma$ che tale che i vincoli hard siano soddisfatti ed i vincoli soft, rappresentati come funzioni di costo, siano minimizzati.
 
-- `tc` **Tempo di cooldown**: ovvero tempo minimo che intercorre fra due produzioni della stessa matrice
+### Vincoli Hard
 
-- `N` numero cambi di matrice massimi al giorno
+- **Compatibilità macchine**: ogni job può essere schedulato solo sulle macchine compatibili. Questo vincolo viene sempre rispettato dall'algoritmo durante la generazione dello schedule.
 
-- `D` giorni di durata dello schedule da generare
+- **Tempo di cooldown**: i job correlati non possono essere in esecuzione contemporaneamente, ne possono essere programmati a meno di $CooldownTime$ giorni di distanza.
+  Tale vincolo hard è mappato come una funzione obiettivo da minimizzare, per assicurarci che questo vincolo non venga violato viene assegnato un peso elevato.
 
-- `C` cavato massimo di un forno
+### Vincoli Soft
 
-- Delta massimo di incremento cavato di un forno in un giorno
+- **Ritardo**: si vuole minimizzare il ritardo sulla consegna, si definisce quindi una funzione obiettivo da minimizzare che rappresenta la somma dei ritardi rispetto alla scadenza di ogni prodotto.
+  $Tardiness(\sigma) = \sum_{i=1}^{n} \max(0, (\sigma_i + \tau_i) - d_i)$
 
-#### Dati di output
-
-- **Schedule**: una sequenza di
-  - _Matrice_ da produrre
-  - _Linea_ su cui produrre la matrice
-  - _Giorno inizio_ della produzione
-  - _Giorno fine_ della produzione
-  - _Colpi feeder_ associati alla matrice
-
-### Calcolo del costo di produzione
-
-Ogni linea ha una serie di parametri modificabili, definiti _settaggi macchina_. Per mettere in produzione una matrice su una determinata linea è necessario che i settaggi macchina siano compatibili con il setup richiesto dalla matrice.
-Ogni cambio del settaggio macchina ha un costo quantificato in punti.
+- **Costo di cambio**: si vuole minimizzare il costo di configurazione totale delle macchine.
+  Ogni cambio del settaggio macchina tra una produzione e la successiva ha un costo quantificato in punti.
 
 | Tipo cambio   | Costo    |
 | ------------- | -------- |
@@ -81,34 +85,45 @@ Ogni cambio del settaggio macchina ha un costo quantificato in punti.
 | Forma         | 50       |
 | Ribruciatrice | 1000     |
 
-(\*) La couvette è definita come una sequenza di possibili valori del diametro `[d1, d2, ..., dn]`. La modifica del diametro dal valore attuale `di` al valore richiesto `di+k` (oppure `di-k`) comporta un costo di `30*k` in cui `k` corrisponde al numero di salti effettuati.
+(\*) La couvette è definita come una sequenza di possibili valori del diametro $[d_1, d_2, ..., d_n]$. La modifica del diametro dal valore attuale $d_i$ al valore richiesto $d_{i+k}$ (oppure $d_{i-k}$ comporta un costo di $30 \times k$ in cui $k$ corrisponde al numero di salti effettuati.
 
-### Vincoli
+- **Numero di cambi giornalieri/settimanali**: iniziare una nuova produzione su una macchina richiede una certa quantitá di manodopera, che purtoppo è limitata, per effettuare il settaggio. Il numero di job che possono quindi essere inziati è limitato da un valore $MaxDailyChanges$. Lo stesso ragionamento vale per il numero di cambi effettuati nell'arco di una settimana.
 
-- La stessa matrice non può essere in produzione contemporaneamente su due linee.
+**[Back to top](#table-of-contents)**
 
-- Non è possibile sforare il cavato massimo giornaliero del forno, calcolato come la somma dei cavati delle linee associate. Cambiando il numero di colpi feeder della matrice è possibile bilanciare il vincolo del cavato producendo un numero superiore di pezzi.
+## Approccio risolutivo
 
-- Il diametro couvette della linea di produzione deve essere uguale a quello della matrice da produrre.
+La scelta dell'algoritmo con cui trattare il problema è stata quella del _simulated annealing_: la motivazione deriva soprattutto dal fatto che per questo problema trovare l'ottimo risulta difficile e richiede un algoritmo esponenziale nella taglia dell'input.
+Pertanto con questo approccio basato sulla probabilità si mira ad ottenere dei risultati sub-ottimi in un tempo ragionevole.
+È necessario quindi definire alcune funzioni che vengono utilizzate dall'algoritmo:
 
-- La gabbia della linea di produzione deve essere compatibile con quella della matrice da produrre.
+- lo _stato_ del problema: la scelta più naturale è stata quella di usare uno schedule completo come stato; lo stato iniziale viene generato riempiendo lo schedule in maniera iterativa con tutti i job a disposizione.
 
-- Le linee di produzione devono avere la configurazione adeguata per produrre una determinata matrice.
+- i _vicini_ dello stato: ovvero tutti quegli schedule che differiscono da quello dello stato attuale per uno scambio di posizione di due job; gli scambi di posizione dei job avvengono in tre modi: scambio di due job sulla stessa linea, scambio di job sulla stessa colonna e infine scambio casuale di due job.
 
-- Deve essere rispettato il calendario fabbrica.
+- il _valore_ dello stato: questa misura dipende direttamente dalle funzioni di costo definite nella descrizione del problema e che vogliamo minimizzare; in base all'importanza che si attribuisce ad ogni funzione viene scelto un peso associato altrettanto significativo, inoltre tutti quei vincoli che sono definiti come _hard constraint_ vengono associati a _soft constraint_ con un peso di molto superiore rispetto agli altri.
 
-- Vanno rispettati i vincoli determinati dai parametri tempo minimi e massimi relativi alle matrici.
+**[Back to top](#table-of-contents)**
 
-### Definizioni
+## Conclusioni
 
-- **Cavato linea**: quantitativo di materia prima (vetro) utilizzata dalla linea nell’arco di una giornata calcolata in [tonnellate/giorno]. Calcolato come: (Colpi Feeder [colpo/1’] _ Peso Articolo [grammi] _ 60 [minuti] \* 24[ore]) / 10E6 [Ton]
+Grazie al progetto abbiamo potuto sperimentare l'applicabilità di un meta-algoritmo di ricerca come il _Simulated-Annealing_ in un contesto reale, riuscendo a generare uno schedule che non solo rispetta tutti i vincoli hard da noi imposti ma ottimizza le funzioni obiettivo.
+Il problema presentato però non descrive completamente la complessitá della situazione reale, in quanto sarebbe necessario introdurre ulteriori vincoli quali:
 
-- **Cavato forno**: sommatoria dei cavati delle linee appartenenti a quel forno (tonnellate / giorno).
+- Calendario fabbrica: rappresentato da una tabella contenente per ogni giorno:
+  1.  Numero di macchine disponibili
+  2.  Numero di macchine attivabili
+  3.  Numero di cambi consentiti
+- Vincoli sulla quantità massima prodotta nei diversi giorni
+- ...
 
-- **Diametro couvette**: diametro del foro dal quale il vetro esce dal forno per poter essere stampato, dipende direttamente dal peso dell’articolo.
+I suddetti vincoli però richiederebbero la costruzione di uno stato del simulated annealing ben più complesso, per riuscire a tenere traccia dell'andamento dei giorni del calendario. Questo renderebbe l'algoritmo da noi proposto meno performante.
 
-- **Gabbia**: supporto pressante della macchina legato all’attrezzatura.
+**[Back to top](#table-of-contents)**
 
-- **Cambio articolo**: si intende il cambio totale di produzione ovvero c’è una variazione di cod. matrice tra la produzione attuale e la successiva.
+## Autori
 
-- **Prodotti in rottura di stock**: prodotti che andranno in disponibilità negativa, per i quali la richiesta è maggiore delle scorte di magazzino.
+- **[Cristiano Di Bari](https://github.com/CriDiba)**
+- **[Matteo Cavaliere](https://github.com/Kaskeeeee)**
+
+**[Back to top](#table-of-contents)**
