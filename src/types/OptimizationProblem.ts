@@ -9,8 +9,6 @@ export interface IOptimizationProblem {
   availability: boolean[][]
   deadlines: number[]
   machineSetup: LineSetup[]
-  couvetteCompatibilities: Couvette[][]
-  cageCompatibilities: Cage[][]
   matricesJobs: number[][]
   cooldown: number
 }

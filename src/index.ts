@@ -4,8 +4,7 @@ import { lines } from './constants'
 import { COOLDOWN_NOT_RESPECTED_COST } from './constants/changeCosts'
 import inputJobs from './data/jobs.json'
 import { informativeSchedule } from './postpro/Postprocessor'
-import { Cage } from './types/enumerations/LineElements'
-import { Couvette, LineSetup } from './types/lines'
+import { LineSetup } from './types/lines'
 import { IOptimizationProblem } from './types/OptimizationProblem'
 import { Move, MOVES, Schedule, ScheduleChange } from './types/schedule'
 import { distance } from './utils/costFunctions'
@@ -23,8 +22,6 @@ const deadlines: number[] = []
 const machineSetup: LineSetup[] = []
 const compatibility: boolean[][] = []
 const machines = [0, 1, 2, 3, 4, 5, 6, 7]
-const couvetteCompatibilities: Couvette[][] = []
-const cageCompatibilities: Cage[][] = []
 const matricesJobs: number[][] = []
 
 lines.forEach(() => {
@@ -43,8 +40,6 @@ inputJobs.forEach((job) => {
     compatibility[index].push(job.compatibleMachines.includes(line))
   })
   compatibility.push(compatible)
-  couvetteCompatibilities.push(job.compatibleCouvettes as Couvette[])
-  cageCompatibilities.push(job.compatibleCages as Cage[])
   matricesJobs.push(inputJobs.filter((j) => j.originalId === job.originalId).map((j) => j.id))
 })
 
@@ -56,8 +51,6 @@ const instance: IOptimizationProblem = {
   availability: [],
   deadlines,
   machineSetup,
-  couvetteCompatibilities,
-  cageCompatibilities,
   matricesJobs,
   cooldown: 10,
 }

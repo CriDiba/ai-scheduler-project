@@ -55,8 +55,6 @@ input.stockBreakMatrices.forEach((matrix) => {
       duration: d,
       deadline: matrix.daysUntilStockBreak,
       compatibleMachines: matrix.linesCompatibility.filter((x) => x.compatible).map((x) => x.lineCode),
-      compatibleCages: matrix.compatibleCages.map((c) => (c === 'CAGE_5' ? Cage.CAGE_5 : Cage.CAGE_6)),
-      compatibleCouvettes: matrix.compatibleCouvettes.map((c) => couvettes.indexOf(c) as Couvette),
       machineSetup: {
         height: matrix.height <= 80 ? Height.LESS_THAN_80 : Height.MORE_THAN_80,
         shape: matrix.shape === 'Moulded' ? Shape.MOLDED : Shape.ROUNDED,
