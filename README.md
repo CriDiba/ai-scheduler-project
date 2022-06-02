@@ -30,7 +30,7 @@ L'output del problema è uno schedule $\sigma$, che consiste in un assegnamento 
 - Un insieme di $n$ jobs: $J = \{j_{1}, ... , j_{n}\}$
 
 - Un insieme di $q$ macchine: $M = \{m_{1}, ... , m_{q}\}$
-- Ogni job $j_i \in J$ ha una durata associata $\tau_i$, viene definito quindi l'insieme $\Tau = \{\tau_{1}, ... , \tau_{n}\}$ delle durate di ciascun job, esse rappresentano il tempo di produzione in giorni relativo a quel job.
+- Ogni job $j_i \in J$ ha una durata associata $\tau_i$, viene definito quindi l'insieme $T = \{\tau_{1}, ... , \tau_{n}\}$ delle durate di ciascun job, esse rappresentano il tempo di produzione in giorni relativo a quel job.
 - Ogni job $j_i \in J$ ha una data di scadenza $d_i$ entro la quale è necessario produrlo, l'insieme $D = \{d_{1}, ... , d_{n}\}$ contiene le date di scadenza di ogni job.
 - Ogni job può essere prodotto solo su un sottoinsieme delle macchine disponibili, viene definita quindi una matrice di compatibilità $C$ di dimensioni $m \times n$, tale che $c_{ij} = 1$ se il job $j_j$ è compatibile con la macchina $m_i$, $c_{ij} = 0$ altrimenti.
 - Ogni job $j_i \in J$ necessita di una specifica configurazione della macchina per poter essere prodotto, in particolare si deve tener conto di:
