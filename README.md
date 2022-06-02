@@ -1,19 +1,20 @@
 # Intelligenza Artificiale - Progetto d'esame
 
-Scopo del progetto è la realizzazione di un Master Production Scheduler (_MPS_), ossia un algoritmo per la pianficazione della produzione di un'azienda produttrice di oggetti in vetro.
+Scopo del progetto è la realizzazione di un Master Production Scheduler (_MPS_), ossia un algoritmo per la pianificazione della produzione di un'azienda produttrice di oggetti in vetro.
+Il problema posto, difficilmente risolvibile in modo ottimale data la complessità e la numerosità dei vincoli, è stato approcciato applicando un meta-algoritmo di ricerca locale che, attraverso approcci probabilistici, esplora lo spazio degli stati alla ricerca di un massimo/minimo globale. L'ottimalità della soluzione finale non è ovviamente garantita ma, permettendo all'algoritmo di esplorare per abbastanza tempo, si può ottenere una buona soluzione.
 
 ## Indice
 
-1. [Definizione del problema](#)
-   1. [Dati di input](#)
-   2. [Dati di output](#)
-   3. [Assunzioni](#)
-2. [Definizione dei vincoli](#)
-   1. [Vincoli Hard](#)
-   2. [Vincoli Soft](#)
-3. [Approccio risolutivo](#)
-4. [Conclusioni](#)
-5. [Autori](#)
+1. [Definizione del problema](#definizione-del-problema)
+   1. [Dati di input](#dati-di-input)
+   2. [Dati di output](#dati-di-output)
+   3. [Assunzioni](#assunzioni)
+2. [Definizione dei vincoli](#definizione-dei-vincoli)
+   1. [Vincoli Hard](#vincoli-hard)
+   2. [Vincoli Soft](#vincoli-soft)
+3. [Approccio risolutivo](#approccio-risolutivo)
+4. [Conclusioni](#conclusioni)
+5. [Autori](#autori)
 
 ## Definizione del problema
 
@@ -21,7 +22,7 @@ Dato un insieme di prodotti, la cui richiesta non è coperta dalle scorte di mag
 L'algoritmo deve quindi ordinare i prodotti sulle linee di produzione disponibili minimizzando il costo di cambio (configurazione della linea) tra una lavorazione e la successiva e minimizzando il ritardo tra la fine della produzione e la data di consegna di ciascun prodotto.
 
 Il problema in questione è un caso particolare del più famoso [Optimal Job Scheduling Problem](https://en.wikipedia.org/wiki/Optimal_job_scheduling), largamente trattato in letteratura.
-Nel problema dello scheduling ottimo sono dati un insieme di $n$ _jobs_ (o _tasks_) ed un inisieme di $m$ processori (o macchine). Ogni job ha associato un numero intero $\tau_i$ che rappresenta il tempo necessario alla sua esecuzione.
+Nel problema dello scheduling ottimo sono dati un insieme di $n$ _jobs_ (o _tasks_) ed un insieme di $m$ processori (o macchine). Ogni job ha associato un numero intero $\tau_i$ che rappresenta il tempo necessario alla sua esecuzione.
 L'output del problema è uno schedule $\sigma$, che consiste in un assegnamento dei job alle macchine tale da ottimizzare una qualche funzione obiettivo.
 
 ### Dati di input
@@ -46,17 +47,17 @@ L'output del problema è uno schedule $\sigma$, che consiste in un assegnamento 
 Lo schedule $\sigma$ è rappresentato da una sequenza di job che vengono assegnati ad ogni macchina. Per semplicità consideriamo uno schedule _left-justified_ in cui l'istante di inizio del primo job è il tempo 0 e tutti gli altri job sulla stessa macchina vengono eseguiti in successione).
 A partire da questa rappresentazione è possibile costruire uno schedule in modo univoco. Un esempio di tale schedule è mostrato nella tabella seguente.
 
-| M     |         |         |         |
-| ----- | ------- | ------- | ------- |
-| $m_1$ | $j_{2}$ | $j_{7}$ | $j_{4}$ |
-| $m_2$ | $j_{1}$ | $j_{2}$ |
-| $m_3$ | $j_{3}$ | $j_{5}$ |
+| M     |         |         |         |          |
+| ----- | ------- | ------- | ------- | -------- |
+| $m_1$ | $j_{2}$ | $j_{7}$ | $j_{4}$ | $j_{9}$  |
+| $m_2$ | $j_{1}$ | $j_{2}$ | $j_{8}$ |
+| $m_3$ | $j_{3}$ | $j_{5}$ | $j_{6}$ | $j_{10}$ |
 
 ### Assunzioni
 
 Ogni job, per poter essere eseguito impiega un tempo $\tau_i$ uguale su ogni macchina.
 
-**[Back to top](#table-of-contents)**
+**[Torna su](#indice)**
 
 ## Definizione dei vincoli
 
@@ -87,15 +88,18 @@ Si vuole produrre uno schedule $\sigma$ che tale che i vincoli hard siano soddis
 
 (\*) La couvette è definita come una sequenza di possibili valori del diametro $[d_1, d_2, ..., d_n]$. La modifica del diametro dal valore attuale $d_i$ al valore richiesto $d_{i+k}$ (oppure $d_{i-k}$ comporta un costo di $30 \times k$ in cui $k$ corrisponde al numero di salti effettuati.
 
-- **Numero di cambi giornalieri/settimanali**: iniziare una nuova produzione su una macchina richiede una certa quantitá di manodopera, che purtoppo è limitata, per effettuare il settaggio. Il numero di job che possono quindi essere inziati è limitato da un valore $MaxDailyChanges$. Lo stesso ragionamento vale per il numero di cambi effettuati nell'arco di una settimana.
+- **Numero di cambi giornalieri/settimanali**: iniziare una nuova produzione su una macchina richiede una certa quantità di manodopera, che purtoppo è limitata, per effettuare il settaggio. Il numero di job che possono quindi essere inziati ogni giorno è limitato da un valore $MaxDailyChanges$. Lo stesso ragionamento vale per il numero di cambi effettuati nell'arco di una settimana.
 
-**[Back to top](#table-of-contents)**
+**[Torna su](#indice)**
 
 ## Approccio risolutivo
 
-La scelta dell'algoritmo con cui trattare il problema è stata quella del _simulated annealing_: la motivazione deriva soprattutto dal fatto che per questo problema trovare l'ottimo risulta difficile e richiede un algoritmo esponenziale nella taglia dell'input.
+La scelta dell'algoritmo con cui trattare il problema è stata quella del [**Simulated annealing**](https://en.wikipedia.org/wiki/Simulated_annealing): la motivazione deriva soprattutto dal fatto che per questo problema trovare l'ottimo risulta difficile e richiede un algoritmo esponenziale nella taglia dell'input.
 Pertanto con questo approccio basato sulla probabilità si mira ad ottenere dei risultati sub-ottimi in un tempo ragionevole.
-È necessario quindi definire alcune funzioni che vengono utilizzate dall'algoritmo:
+La ricerca locale inizia da uno _stato iniziale_ generato casualmente e la scelta dello stato successore è effettuata randomicamente scegliendo fra un insieme di _stati vicini_.
+Per evitare lo stallo in situazioni di punti di massimo o minimo locali come accade in altri algoritmi di ricerca (es. hill climbing), simulated annealing ammette la possibilità di effettuare mosse peggiorative con una probabilità ponderata allo scarto del peggioramento e al tempo di esecuzione.
+
+È necessario quindi definire alcune funzioni utilizzate dall'algoritmo:
 
 - lo _stato_ del problema: la scelta più naturale è stata quella di usare uno schedule completo come stato; lo stato iniziale viene generato riempiendo lo schedule in maniera iterativa con tutti i job a disposizione.
 
@@ -103,12 +107,12 @@ Pertanto con questo approccio basato sulla probabilità si mira ad ottenere dei 
 
 - il _valore_ dello stato: questa misura dipende direttamente dalle funzioni di costo definite nella descrizione del problema e che vogliamo minimizzare; in base all'importanza che si attribuisce ad ogni funzione viene scelto un peso associato altrettanto significativo, inoltre tutti quei vincoli che sono definiti come _hard constraint_ vengono associati a _soft constraint_ con un peso di molto superiore rispetto agli altri.
 
-**[Back to top](#table-of-contents)**
+**[Torna su](#indice)**
 
 ## Conclusioni
 
 Grazie al progetto abbiamo potuto sperimentare l'applicabilità di un meta-algoritmo di ricerca come il _Simulated-Annealing_ in un contesto reale, riuscendo a generare uno schedule che non solo rispetta tutti i vincoli hard da noi imposti ma ottimizza le funzioni obiettivo.
-Il problema presentato però non descrive completamente la complessitá della situazione reale, in quanto sarebbe necessario introdurre ulteriori vincoli quali:
+Il problema presentato però non descrive completamente la complessità della situazione reale, in quanto sarebbe necessario introdurre ulteriori vincoli quali:
 
 - Calendario fabbrica: rappresentato da una tabella contenente per ogni giorno:
   1.  Numero di macchine disponibili
@@ -119,11 +123,11 @@ Il problema presentato però non descrive completamente la complessitá della si
 
 I suddetti vincoli però richiederebbero la costruzione di uno stato del simulated annealing ben più complesso, per riuscire a tenere traccia dell'andamento dei giorni del calendario. Questo renderebbe l'algoritmo da noi proposto meno performante.
 
-**[Back to top](#table-of-contents)**
+**[Torna su](#indice)**
 
 ## Autori
 
 - **[Cristiano Di Bari](https://github.com/CriDiba)**
 - **[Matteo Cavaliere](https://github.com/Kaskeeeee)**
 
-**[Back to top](#table-of-contents)**
+**[Torna su](#indice)**
