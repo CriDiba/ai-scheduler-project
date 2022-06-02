@@ -50,7 +50,7 @@ A partire da questa rappresentazione è possibile costruire uno schedule in modo
 | M     |         |         |         |          |
 | ----- | ------- | ------- | ------- | -------- |
 | $m_1$ | $j_{2}$ | $j_{7}$ | $j_{4}$ | $j_{9}$  |
-| $m_2$ | $j_{1}$ | $j_{2}$ | $j_{8}$ |
+| $m_2$ | $j_{1}$ | $j_{2}$ | $j_{8}$ |          |
 | $m_3$ | $j_{3}$ | $j_{5}$ | $j_{6}$ | $j_{10}$ |
 
 ### Assunzioni
