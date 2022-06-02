@@ -27,7 +27,7 @@ L'output del problema è uno schedule $\sigma$, che consiste in un assegnamento 
 
 ### Dati di input
 
-- Un insieme di $n$ jobs: $J = \{j_{1}, ... , j_{n}\}$
+- Un insieme di $n$ jobs: $J = \left \{j_{1}, ... , j_{n}\right\}$
 
 - Un insieme di $q$ macchine: $M = \{m_{1}, ... , m_{q}\}$
 - Ogni job $j_i \in J$ ha una durata associata $\tau_i$, viene definito quindi l'insieme $T = \{\tau_{1}, ... , \tau_{n}\}$ delle durate di ciascun job, esse rappresentano il tempo di produzione in giorni relativo a quel job.
