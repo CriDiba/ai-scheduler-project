@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "originalId": "007a9f83-5271-4364-809f-899de6a101d9",
+    "duration": 3,
+    "deadline": 3,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 1, "cage": 1, "couvette": 1, "remeltingMachine": false }
+  },
+  {
+    "id": 1,
+    "originalId": "01b2e65c-62dd-4ccf-b96e-b73effd872c1",
+    "duration": 9,
+    "deadline": 12,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 0, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 2,
+    "originalId": "031a6886-6666-4ad3-88d8-c46ae414437c",
+    "duration": 17,
+    "deadline": 20,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 3,
+    "originalId": "031a6886-5555-4ad3-88d8-c46ae414437c",
+    "duration": 2,
+    "deadline": 5,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 4,
+    "originalId": "031a6886-4444-4ad3-88d8-c46ae414437c",
+    "duration": 5,
+    "deadline": 10,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 5,
+    "originalId": "031a6886-3333-4ad3-88d8-c46ae414437c",
+    "duration": 2,
+    "deadline": 15,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 6,
+    "originalId": "031a6886-607a-4ad3-88d8-c46ae414455c",
+    "duration": 8,
+    "deadline": 10,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 7,
+    "originalId": "031a6886-1111-4ad3-88d8-c46ae414437c",
+    "duration": 4,
+    "deadline": 20,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 8,
+    "originalId": "031a6886-8888-4ad3-88d8-c46ae414437c",
+    "duration": 5,
+    "deadline": 22,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 1, "shape": 0, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  },
+  {
+    "id": 9,
+    "originalId": "0726b912-1121-4976-a8ff-ca85cc2a973f",
+    "duration": 3,
+    "deadline": 15,
+    "compatibleMachines": ["3", "4", "5"],
+    "machineSetup": { "height": 0, "shape": 1, "cage": 1, "couvette": 3, "remeltingMachine": false }
+  }
+]
