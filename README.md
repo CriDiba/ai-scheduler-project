@@ -13,8 +13,9 @@ Il problema posto, difficilmente risolvibile in modo ottimale data la complessit
    1. [Vincoli Hard](#vincoli-hard)
    2. [Vincoli Soft](#vincoli-soft)
 3. [Approccio risolutivo](#approccio-risolutivo)
-4. [Conclusioni](#conclusioni)
-5. [Autori](#autori)
+4. [Risultati ottenuti](#risultati-ottenuti)
+5. [Conclusioni](#conclusioni)
+6. [Autori](#autori)
 
 ## Definizione del problema
 
