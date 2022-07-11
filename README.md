@@ -107,6 +107,8 @@ Per evitare lo stallo in situazioni di punti di massimo o minimo locali come acc
 
 - il _valore_ dello stato: questa misura dipende direttamente dalle funzioni di costo definite nella descrizione del problema e che vogliamo minimizzare; in base all'importanza che si attribuisce ad ogni funzione viene scelto un peso associato altrettanto significativo, inoltre tutti quei vincoli che sono definiti come _hard constraint_ vengono associati a _soft constraint_ con un peso di molto superiore rispetto agli altri.
 
+**[Torna su](#indice)**
+
 ## Risultati ottenuti
 
 **[Torna su](#indice)**
