@@ -21,7 +21,7 @@ Il problema posto, difficilmente risolvibile in modo ottimale data la complessit
 Dato un insieme di prodotti, la cui richiesta non è coperta dalle scorte di magazzino, si vuole pianificarne la produzione.
 L'algoritmo deve quindi ordinare i prodotti sulle linee di produzione disponibili minimizzando il costo di cambio (configurazione della linea) tra una lavorazione e la successiva e minimizzando il ritardo tra la fine della produzione e la data di consegna di ciascun prodotto.
 
-Il problema in questione è un caso particolare del più famoso [Optimal Job Scheduling Problem](https://en.wikipedia.org/wiki/Optimal_job_scheduling), largamente trattato in letteratura.
+Il problema in questione è un caso particolare del più famoso Optimal Job Scheduling Problem, largamente trattato in letteratura.
 Nel problema dello scheduling ottimo sono dati un insieme di $n$ _jobs_ (o _tasks_) ed un insieme di $m$ processori (o macchine). Ogni job ha associato un numero intero $\tau_i$ che rappresenta il tempo necessario alla sua esecuzione.
 L'output del problema è uno schedule $\sigma$, che consiste in un assegnamento dei job alle macchine tale da ottimizzare una qualche funzione obiettivo.
 
@@ -94,8 +94,8 @@ Si vuole produrre uno schedule $\sigma$ che tale che i vincoli hard siano soddis
 
 ## Approccio risolutivo
 
-La scelta dell'algoritmo con cui trattare il problema è stata quella del [**Simulated annealing**](https://en.wikipedia.org/wiki/Simulated_annealing): la motivazione deriva soprattutto dal fatto che per questo problema trovare l'ottimo risulta difficile e richiede un algoritmo esponenziale nella taglia dell'input.
-Pertanto con questo approccio basato sulla probabilità si mira ad ottenere dei risultati sub-ottimi in un tempo ragionevole.
+La scelta dell'algoritmo con cui trattare il problema è stata quella del **Simulated annealing**: la motivazione deriva soprattutto dal fatto che per questo problema trovare l'ottimo risulta difficile e richiede un algoritmo esponenziale nella taglia dell'input.
+Pertanto con questo approccio greedy si mira ad ottenere dei risultati sub-ottimi in un tempo ragionevole, ottimizzando la soluzione tramite successive modifiche locali dello stato e ammettendo di poter fare scelte peggiorative, su base probabilistica, in modo da esplorare maggiormente lo spazio delle soluzioni.
 La ricerca locale inizia da uno _stato iniziale_ generato casualmente e la scelta dello stato successore è effettuata randomicamente scegliendo fra un insieme di _stati vicini_.
 Per evitare lo stallo in situazioni di punti di massimo o minimo locali come accade in altri algoritmi di ricerca (es. hill climbing), simulated annealing ammette la possibilità di effettuare mosse peggiorative con una probabilità ponderata allo scarto del peggioramento e al tempo di esecuzione.
 
@@ -106,6 +106,8 @@ Per evitare lo stallo in situazioni di punti di massimo o minimo locali come acc
 - i _vicini_ dello stato: ovvero tutti quegli schedule che differiscono da quello dello stato attuale per uno scambio di posizione di due job; gli scambi di posizione dei job avvengono in tre modi: scambio di due job sulla stessa linea, scambio di job sulla stessa colonna e infine scambio casuale di due job.
 
 - il _valore_ dello stato: questa misura dipende direttamente dalle funzioni di costo definite nella descrizione del problema e che vogliamo minimizzare; in base all'importanza che si attribuisce ad ogni funzione viene scelto un peso associato altrettanto significativo, inoltre tutti quei vincoli che sono definiti come _hard constraint_ vengono associati a _soft constraint_ con un peso di molto superiore rispetto agli altri.
+
+## Risultati ottenuti
 
 **[Torna su](#indice)**
 
@@ -119,7 +121,6 @@ Il problema presentato però non descrive completamente la complessità della si
   2.  Numero di macchine attivabili
   3.  Numero di cambi consentiti
 - Vincoli sulla quantità massima prodotta nei diversi giorni
-- ...
 
 I suddetti vincoli però richiederebbero la costruzione di uno stato del simulated annealing ben più complesso, per riuscire a tenere traccia dell'andamento dei giorni del calendario. Questo renderebbe l'algoritmo da noi proposto meno performante.
 
