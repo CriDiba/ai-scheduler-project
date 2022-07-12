@@ -112,6 +112,58 @@ Per evitare lo stallo in situazioni di punti di massimo o minimo locali come acc
 
 ## Risultati ottenuti
 
+Al fine di verificare l'effettiva validità dell'approccio utilizzato sono stati generati alcuni dataset derivanti sia da situazioni reali che appositamente costruiti per gli esperimenti.
+
+Di seguito sono descritti brevemente i dataset utilizzati:
+
+- Dataset **1**: situazione reale corrispondente a maggio 2022
+- Dataset **2**: situazione reale corrispondente a luglio 2022
+- Dataset **3**: i job in questo dataset possono essere schedulati solamente su 2 delle 8 macchine disponibili
+- Dataset **4**: la data di scadenza dei job è posta molto avanti nel futuro, in questo modo l'algoritmo ottimizza la produzione solo per costo di cambio
+- Dataset **5**: dataset "giocattolo" contenente solo 10 job da schedulare
+
+Gli esperimenti sono stati effettuati provando di volta in volta a modificare i paramentri relativi al simulated annealing per poter osservare eventuali variazioni nei risultati generati.
+
+### Esperimento 1
+
+Parametri utilizzati:
+
+- Temperatura iniziale: $1000$,
+- Passi da effettuare ad ogni temperatura: $1$,
+- Numero step di raffreddamento: $100000$,
+- Fattore di raffreddamento: $0.9997$,
+- Peso della temperatura sulla probabilità di scegliere una mossa peggiorativa: $1.3$
+
+| dataset | initial value | final value | execution time | hard constraints |
+| ------- | ------------- | ----------- | -------------- | ---------------- |
+| 1       | 166007396     | 4240        | 25.171s        | Rispettati       |
+| 2       | 79010168      | 6131        | 27.092s        | Rispettati       |
+| 3       | 26460         | 17817       | 19.488s        | Rispettati       |
+| 4       | 316005430     | 3750        | 26.743s        | Rispettati       |
+| 5       | 342           | 123         | 14.011s        | Rispettati       |
+
+### Esperimento 2
+
+Parametri utilizzati:
+
+- Temperatura iniziale: $100000$,
+- Passi da effettuare ad ogni temperatura: $2$,
+- Numero step di raffreddamento: $70000$,
+- Fattore di raffreddamento: $0.9998$,
+- Peso della temperatura sulla probabilità di scegliere una mossa peggiorativa: $1$
+
+| dataset | initial value | final value | execution time | hard constraints |
+| ------- | ------------- | ----------- | -------------- | ---------------- |
+| 1       | 332008252     | 4703        | 38.011s        | Rispettati       |
+| 2       | 158009556     | 5656.9      | 37.494s        | Rispettati       |
+| 3       | 59199         | 17823       | 27.062s        | Rispettati       |
+| 4       | 316007235     | 3860        | 37.464s        | Rispettati       |
+| 5       | 370           | 123         | 19.167s        | Rispettati       |
+
+### Osservazioni
+
+Dai risultati degli esperimenti è possibile notare come l'algoritmo, a partire da una situazione iniziale con un valore di costo molto elevato, riesce in un tempo ragionevole a convergere ad un valore adeguato. Inoltre i vincoli hard vengono sempre rispettati ad ogni esecuzione poiché alcuni di questi sono vincolanti nel momento della scelta dello stato successore mentre altri, mappati come vincoli soft, hanno un costo elevato al punto da non essere riscontrabile nei valori finali.
+
 **[Torna su](#indice)**
 
 ## Conclusioni
